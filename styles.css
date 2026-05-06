@@ -1,0 +1,87 @@
+:root {
+  color-scheme: dark;
+  --bg: #050816;
+  --card: rgba(19, 26, 46, 0.65);
+  --card-border: rgba(130, 163, 255, 0.3);
+  --text: #ecf2ff;
+  --accent: #7df9ff;
+  --accent2: #8d6bff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(1200px 600px at 20% 0%, #101d42, var(--bg));
+  color: var(--text);
+}
+
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 80% 15%, rgba(124, 249, 255, 0.14), transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(141, 107, 255, 0.16), transparent 30%);
+  pointer-events: none;
+}
+
+.app-shell { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.glass {
+  backdrop-filter: blur(12px);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.topbar { padding: 20px 24px; margin-bottom: 20px; }
+.topbar h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 2.5vw, 2.4rem); }
+.topbar p { margin: 0; opacity: 0.86; }
+
+.game-layout { display: grid; grid-template-columns: 220px 1fr; gap: 20px; }
+.hud { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.stat { display: grid; gap: 3px; }
+.stat span { font-size: 0.86rem; opacity: 0.75; }
+.stat strong { font-size: 1.7rem; letter-spacing: 0.02em; }
+
+.btn-primary {
+  margin-top: auto;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: #04121d;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--accent), #a7fbff 45%, #75e2ff);
+}
+.btn-primary:hover { transform: translateY(-1px); }
+
+.canvas-wrap {
+  position: relative;
+  padding: 12px;
+}
+canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #0f1a34, #080d20);
+  border: 1px solid rgba(130, 163, 255, 0.3);
+}
+
+.overlay {
+  position: absolute;
+  inset: 12px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 14px;
+  background: rgba(5, 8, 22, 0.72);
+  border-radius: 14px;
+}
+.overlay.hidden { display: none; }
+
+@media (max-width: 960px) {
+  .game-layout { grid-template-columns: 1fr; }
+  .hud { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .btn-primary { margin-top: 0; margin-left: auto; }
+}
