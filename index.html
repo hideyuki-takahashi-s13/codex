@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon Dodge Arena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+    <main class="app-shell">
+      <header class="topbar glass">
+        <h1>Neon Dodge Arena</h1>
+        <p>矢印キー / WASD で操作。障害物を回避してハイスコアを目指そう。</p>
+      </header>
+
+      <section class="game-layout">
+        <aside class="hud glass">
+          <div class="stat">
+            <span>Score</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat">
+            <span>Best</span>
+            <strong id="best">0</strong>
+          </div>
+          <div class="stat">
+            <span>Speed</span>
+            <strong id="speed">1.0x</strong>
+          </div>
+          <button id="restartBtn" class="btn-primary">Restart</button>
+        </aside>
+
+        <div class="canvas-wrap glass">
+          <canvas id="game" width="920" height="560" aria-label="game canvas"></canvas>
+          <div id="overlay" class="overlay hidden">
+            <h2>Game Over</h2>
+            <p id="finalScore"></p>
+            <button id="overlayRestart" class="btn-primary">Play Again</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
